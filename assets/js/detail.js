@@ -32,34 +32,35 @@ function displayCountry(data) {
     countryBox.innerHTML = str;
 }
 
-let id = location.search.slice(4,location.search.length)
+let id = location.search.slice(4, location.search.length)
 
 function api(page) {
     fetch(`https://countries-restapi.vercel.app/all`)
-    .then(res => res.json())
-    .then(data => data.data.forEach(e=>{
-        if (+e.ccn3==id) {
-            loading.style.display='none'
-            displayCountry([e])
-            const detailTitle = document.querySelector('.detail__title')
-            const detailInfoText = document.querySelectorAll('.info__text')
+        .then(res => res.json())
+        .then(data => data.data.forEach(e => {
+            if (+e.ccn3 == id) {
+                loading.style.display = 'none'
+                displayCountry([e])
+                const detailTitle = document.querySelector('.detail__title')
+                const detailInfoText = document.querySelectorAll('.info__text')
 
-            darkBtn.addEventListener('click', (e)=>{
-                body.classList.toggle('body_dark')
-                header.classList.toggle('header_dark')
-                headerLogo.classList.toggle('header__logo_dark')
-                darkBtn.classList.toggle('header__logo_dark')
-                detailTitle.classList.toggle('title_dark')
-                detailInfoText.forEach(e=>{
-                    e.classList.toggle('title_dark')
+                darkBtn.addEventListener('click', (e) => {
+                    body.classList.toggle('body_dark')
+                    header.classList.toggle('header_dark')
+                    headerLogo.classList.toggle('header__logo_dark')
+                    darkBtn.classList.toggle('header__logo_dark')
+                    detailTitle.classList.toggle('title_dark')
+                    backBtn.classList.toggle('btn_style_dark')
+                    detailInfoText.forEach(e => {
+                        e.classList.toggle('title_dark')
+                    })
                 })
-            })
-        }
-    }))
-    .catch(err => console.log(err))
+            }
+        }))
+        .catch(err => console.log(err))
 }
-api(page=1)
+api(page = 1)
 
-backBtn.addEventListener('click', e=>{
-    location.href='/index.html'
+backBtn.addEventListener('click', e => {
+    location.href = '/index.html'
 })

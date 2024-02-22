@@ -18,7 +18,7 @@ body {
   transition: all 1s ease;
 }
 
-.body_dark{
+.body_dark {
   transition: all 1s ease;
   background-color: #202C36;
 }
@@ -38,7 +38,7 @@ ol {
   padding: 0;
 }
 
-a{
+a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
@@ -57,7 +57,7 @@ img {
 }
 
 @media screen and (max-width:900px) {
-  .container{
+  .container {
     width: 95%;
   }
 }

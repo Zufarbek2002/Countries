@@ -14,6 +14,8 @@ const body = document.querySelector('.body')
 const searchBox = document.querySelector('.search_box')
 const icon = document.querySelector('.header__icon')
 
+const pageBtn = document.querySelectorAll('.btn_style')
+
 
 function displayCountry(data) {
     let str = "";
@@ -39,89 +41,90 @@ function displayCountry(data) {
 
 function api(page) {
     fetch(`https://countries-restapi.vercel.app/all?page=${page}&limit=12`)
-    .then(res => res.json())
-    .then(data => {
-        loading.style.display='none'
-        displayCountry(data)})
-    .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(data => {
+            loading.style.display = 'none'
+            displayCountry(data)
+        })
+        .catch(err => console.log(err))
 }
-nextBtn.addEventListener('click', e=>{
+nextBtn.addEventListener('click', e => {
     page += 1;
     api(page)
 })
 
-previousBtn.addEventListener('click', e=>{
-    if (page>1) {
+previousBtn.addEventListener('click', e => {
+    if (page > 1) {
         page -= 1;
     }
     api(page)
 })
 
-api(page=1)
+api(page = 1)
 
-search.addEventListener('input', e=>{
+search.addEventListener('input', e => {
     let text = e.target.value.toLowerCase()
     if (text) {
         fetch(`https://countries-restapi.vercel.app/name/${text}?page=1&limit=12`)
-        .then(res => res.json())
-        .then(data => displayCountry(data))
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(data => displayCountry(data))
+            .catch(err => console.log(err))
     }
-    else{
-        api(page=1)
+    else {
+        api(page = 1)
     }
 })
 
 
-filter.addEventListener('click', e=>{
+filter.addEventListener('click', e => {
     let text = e.target.value;
     if (text == "All") {
-        api(page=1)
+        api(page = 1)
     }
-    else{
+    else {
         function filterPage(page) {
             fetch(`https://countries-restapi.vercel.app/region/${text}?page=${page}&limit=12`)
-            .then(res => res.json())
-            .then(data =>
-                {
-                    displayCountry(data)})
-                    .catch(err => console.log(err))
-                }
-                nextBtn.addEventListener('click', e=>{
-                        page += 1;
-                        filterPage(page)
+                .then(res => res.json())
+                .then(data => {
+                    displayCountry(data)
                 })
+                .catch(err => console.log(err))
+        }
+        nextBtn.addEventListener('click', e => {
+            page += 1;
+            filterPage(page)
+        })
 
-                previousBtn.addEventListener('click', e=>{
-                    if (page>1) {
-                        page -= 1;
-                    }
-                    filterPage(page)
-                })
-                filterPage(page=1)
+        previousBtn.addEventListener('click', e => {
+            if (page > 1) {
+                page -= 1;
+            }
+            filterPage(page)
+        })
+        filterPage(page = 1)
     }
 })
 
-sort.addEventListener('click', e=>{
+sort.addEventListener('click', e => {
     let text = e.target.value;
     if (text == "All") {
         api(page)
     } else {
         function sortApi(page) {
             fetch(`https://countries-restapi.vercel.app/all?sort=${text}&order=asc&page=${page}&limit=12`)
-            .then(res => res.json())
-            .then(data => displayCountry(data))
-            .catch(err => console.log(err))
+                .then(res => res.json())
+                .then(data => displayCountry(data))
+                .catch(err => console.log(err))
         }
-        sortApi(page=1)
+        sortApi(page = 1)
 
-        nextBtn.addEventListener('click', e=>{
+        nextBtn.addEventListener('click', e => {
             page += 1;
             sortApi(page)
         })
 
-        previousBtn.addEventListener('click', e=>{
-            if (page>1) {
+        previousBtn.addEventListener('click', e => {
+            if (page > 1) {
                 page -= 1;
             }
             sortApi(page)
@@ -129,12 +132,12 @@ sort.addEventListener('click', e=>{
     }
 })
 
-function detail(id){
-    location.href=`/pages/detail.html?id=${id}`
+function detail(id) {
+    location.href = `/pages/detail.html?id=${id}`
     console.log(id);
 }
 
-darkBtn.addEventListener('click', (e)=>{
+darkBtn.addEventListener('click', () => {
     body.classList.toggle('body_dark')
     header.classList.toggle('header_dark')
     headerLogo.classList.toggle('header__logo_dark')
@@ -144,4 +147,7 @@ darkBtn.addEventListener('click', (e)=>{
     search.classList.toggle('search_dark')
     filter.classList.toggle('header_dark')
     sort.classList.toggle('header_dark')
+    pageBtn.forEach(e=>{
+        e.classList.toggle('btn_style_dark')
+    })
 })

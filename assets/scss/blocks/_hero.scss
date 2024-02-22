@@ -112,7 +112,7 @@
     color: $mainColor;
 }
 
-.content__title_dark{
+.content__title_dark {
     color: $darkColor
 }
 
@@ -153,11 +153,46 @@
     }
 }
 
-.loading_box{
+.loading_box {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn_box {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn_style {
+    padding: 8px 0;
+    width: 100%;
+    max-width: 150px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #333;
+    color: $mainColor;
+    background-color: transparent;
+
+    &:hover {
+        box-shadow: 0px 0px 7px 2px #4e4e4e68;
+        transition: all .6s ease;
+    }
+}
+
+.btn_style_dark{
+    border: 1px solid $darkColor;
+    color: $darkColor;
+
+    &:hover {
+        box-shadow: 0px 0px 7px 2px #c1c1c168;
+        transition: all .6s ease;
+    }
 }
 
 // responsive media part
