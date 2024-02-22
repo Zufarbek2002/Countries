@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <title>Countries</title>
+  </head>
+  <body class="body">
+    <header id="header" class="header">
+      <div class="container header__container">
+        <a href="#">
+          <h1 class="header__logo">Where in the world?</h1>
+        </a>
+        <div class="dark_mode">
+          <i class="fa-regular fa-moon header__icon"></i>
+          <button class="dark_mode__btn">Dark Mode</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <section id="hero" class="hero">
+        <div class="container hero__container">
+          <div class="hero__search_boxes">
+            <div class="search_box">
+              <label for="search">
+                <i class="fa-solid fa-magnifying-glass header__icon"></i>
+              </label>
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Search for a country…"
+              />
+            </div>
+
+            <div class="filter_boxes">
+              <select name="sort" id="sort" class="filter_box">
+                <option value="All">All</option>
+                <option value="Title">Title</option>
+                <option value="Population">Population</option>
+                <option value="Region">Region</option>
+                <option value="Capital">Capital</option>
+              </select>
+
+              <select name="filter" id="filter" class="filter_box">
+                <option value="All">Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="loading_box">
+            <img src="./assets/image/loading_img.svg" alt="">
+          </div>
+
+          <div class="content_boxes"></div>
+
+          <div class="btn_box">
+            <button class="previous_btn">Previous</button>
+            <button class="next_btn">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer"></footer>
+    <script
+      src="https://kit.fontawesome.com/f8ca3b2196.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

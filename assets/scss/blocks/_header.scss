@@ -1,0 +1,57 @@
+.header {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 2px 4px 0px #0000000E;
+    background-color: #fff;
+    transition: all 1s ease;
+}
+
+.header_dark{
+    background-color: #2B3844;
+    color: $darkColor;
+    transition: all 1s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px;
+}
+
+.header__logo {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 33px;
+    color: $mainColor;
+    transition: all 1s ease;
+}
+
+.dark_mode__btn {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    outline: none;
+    color: $mainColor;
+    transition: all 1s ease;
+}
+
+.header__logo_dark{
+    transition: all 1s ease;
+    color: $darkColor;
+}
+
+@media screen and (max-width:420px) {
+    .header__logo {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .dark_mode__btn {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}

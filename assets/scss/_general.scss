@@ -1,0 +1,63 @@
+html {
+  box-sizing: border-box;
+  font-family: Nunito Sans;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #FAFAFA;
+  transition: all 1s ease;
+}
+
+.body_dark{
+  transition: all 1s ease;
+  background-color: #202C36;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1440px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:900px) {
+  .container{
+    width: 95%;
+  }
+}
